@@ -15,7 +15,7 @@ import com.guilherme.helpdesk.domain.enums.Prioridade;
 import com.guilherme.helpdesk.domain.enums.Status;
 
 @Entity
-public abstract class Chamado implements Serializable {
+public class Chamado implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
