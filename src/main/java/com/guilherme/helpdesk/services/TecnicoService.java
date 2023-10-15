@@ -3,6 +3,8 @@ package com.guilherme.helpdesk.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,14 @@ public class TecnicoService {
 		tecnicoDTO.setId(null);
 		validaPorCpfEEmail(tecnicoDTO);
 		Tecnico tecnico = new Tecnico(tecnicoDTO);
+		return tecnicoRepository.save(tecnico);
+	}
+	
+	public Tecnico update(Integer id, @Valid TecnicoDTO tecnicoDTO) {
+		tecnicoDTO.setId(id);
+		Tecnico tecnico = findById(id);
+		validaPorCpfEEmail(tecnicoDTO);
+		tecnico = new Tecnico(tecnicoDTO);
 		return tecnicoRepository.save(tecnico);
 	}
 
