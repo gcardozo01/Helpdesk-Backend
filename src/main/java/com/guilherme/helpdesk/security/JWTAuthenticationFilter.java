@@ -50,7 +50,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String token = jwtUtil.generateToken(username);
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		res.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
-		res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, enctype, Location");
+		res.addHeader("Access-Control-Expose-Headers", "Authorization");
 		res.setHeader("Authorization", "Bearer " + token);
 	}
 
